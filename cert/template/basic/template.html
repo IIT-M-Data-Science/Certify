@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="description" content="IITM-PODCertification">
+
+    {# Cert type - Participation, Excellence, etc..#}
+    <title>IITM-POD - {{cert_type | title}} Certification</title>
+    
+    <link href="main.css" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+    <div class="main">
+        <div class="group-1">
+            <div class="title-1">Indian Institute of Techonology Madras</div> 
+            <div class="title-2">BSc in Programming and Data Science<div>
+        </div>
+        <div class="group-2 ">
+            <div class="title-1">CERTIFICATE</div> 
+            <div class="title-2">OF {{cert_type | upper}}<div>
+        </div>
+        <div class="group-3">
+            PROUDLY PRESENTED TO
+        </div>
+        <div class="group-4">
+            <div class="text">{{name}}</div>
+        </div>
+        <div class="group-5">
+            <div class="text">{{cert_desc}}</div>
+        </div>
+        
+        {% if (signatures | length) == 2%}
+        <div class="signature" style="top: 454px; left: -143px;" id="left">
+            <div class="below-signature">
+                <b>{{signatures[0].name | upper}}</b> <br>
+                <span style="font-size: 17px;">{{signatures[0].title | upper}}</span>
+            </div>
+            <div class="above-signature">
+                <img src="{{signatures[0].url}}">
+            </div>
+        </div>
+
+        <div class="signature" style="top: 454px; left: 293px;" id="right">
+            <div class="below-signature">
+                <b>{{signatures[1].name | upper}}</b> <br>
+                <span style="font-size: 17px;">{{signatures[1].title | upper}}</span>
+            </div>
+            <div class="above-signature">
+                <img src="{{signatures[1].url}}">
+            </div>
+        </div>
+
+        <img class='qr-code-mid' src="{{qr_code}}">
+        {% elif (signatures | length) == 1 %}
+        <div class="signature" style="top: 454px; left: 75px;" id="center">
+            <div class="below-signature">
+                <b>{{signatures[0].name | upper}}</b> <br>
+                <span style="font-size: 17px;">{{signatures[0].title | upper}}</span>
+            </div>
+            <div class="above-signature">
+                <img src="{{signatures[0].url}}">
+            </div>
+        </div>
+        <img class='qr-code-mid-below' src="{{qr_code}}">
+        {% endif %}
+    </div>
+    {% endblock %}
+
+    {% block body_end%} {% endblock %}
+</body>
+</html>

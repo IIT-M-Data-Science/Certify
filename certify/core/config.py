@@ -6,7 +6,6 @@ from loguru import logger
 from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings, Secret, URL
 
-from certify.core.logging import InterceptHandler 
 from certify.constants.jwt import JWTTokenType
 
 config = Config(".env")
@@ -26,10 +25,12 @@ DEFAULT_TOKEN_EXPIRE = config(
     "DEFAULT_TOKEN_EXPIRE", cast=int, default=15 * 60)
 JWT_ALGORITHM = config("DEFAULT_TOKEN_EXPIRE",
                        cast=JWTTokenType, default="HS256")
-
-logging.getLogger().handlers = [InterceptHandler()]
-LOGGERS = ("uvicorn.asgi", "uvicorn.access")
-for logger_name in LOGGERS:
-    logging_logger = logging.getLogger(logger_name)
-    logging_logger.setLevel(logging.INFO)
-    logging_logger.handlers = [InterceptHandler(level=LOGGING_LEVEL)]
+FIRESTORE_PROJECT_ID = config(
+    "FIRESTORE_PROJECT_ID", cast=str, default="iitmadrascert"
+)
+STORAGE_PROJECT_ID = config(
+    "FIRESTORE_PROJECT_ID", cast=str, default="iitmadrascert"
+)
+STORAGE_BUCKET = config(
+    "STORAGE_BUCKET", cast=str, default="iitmadrascert.appspot.com"
+)

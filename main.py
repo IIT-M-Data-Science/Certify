@@ -10,6 +10,7 @@ from starlette.middleware.cors import CORSMiddleware
 from certify.core.error.http_error import http_error_handler
 from certify.core.error.validation_error import http422_error_handler
 from certify.routes import router
+from certify.core.logging import intercept_logging
 from certify.core.config import ALLOWED_HOSTS, DEBUG, SECRET_KEY
 from certify.core.events import create_start_app_handler, create_stop_app_handler
 from certify.core.middleware.jwt import OAuthMiddleware
@@ -33,6 +34,7 @@ def catch_exceptions():
 
 def create_application():
     catch_exceptions()
+    intercept_logging()
 
     app = FastAPI(
         title="Certify", 

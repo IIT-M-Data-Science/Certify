@@ -1,0 +1,215 @@
+/* define all fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&family=Roboto:wght@400;900&display=swap');
+
+@font-face {
+    font-family: 'MinionVariableConcept-Roman';
+    src: url('Minion\ Variable\ Concept.otf');
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('Helvetica.ttf');
+}
+
+@page {
+    size: A4; /* Change from the default size of A4 */
+    margin: 0mm; /* Set margin on each page */
+}
+  
+@media print {
+    body {-webkit-print-color-adjust: exact;}
+}
+
+/* define page style*/
+
+html {
+    top: 0;
+    left: 0;
+}
+
+.main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 798px;
+    height: 1123px;
+    background: transparent url('Group 28.png') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.group-1 {
+    position: relative;
+    top: 278px;
+    left: 134px;
+    width: 532px;
+    height: 75px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.group-1 .title-1 {
+    position: absolute;
+    top: 0px;
+    left: 0.02099609375px;
+    width: 532px;
+    height: 39px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.group-1 .title-2 {
+    position: absolute;
+    top: 36px;
+    left: 10px;
+    width: 512px;
+    height: 39px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.group-2 {
+    position: relative;
+    top: 30px;
+    left: 0px;
+    width: 446px;
+    height: 150px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.group-2 .title-1 {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 446px;
+    height: 109px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+
+    font-family: 'MinionVariableConcept-Roman';
+    font-size: 82px;
+    font-weight: 800;
+}
+
+.group-2 .title-2 {
+    position: relative;
+    top: -10px;
+    left: 30px;
+    width: 446px;
+    height: 54px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+    
+    font-family: 'MinionVariableConcept-Roman';
+    font-size: 41px;
+    font-weight: 700;
+}
+
+.group-3 {
+    position: relative;
+    top: 29px;
+    left: -25px;
+    width: 485px;
+    height: 42px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #000000;
+    opacity: 1;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 34px;
+}
+
+.group-4 {
+    position: relative;
+    top: 55px;
+    left: -186px;
+    width: 790px;
+    height: 125px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #D5A54D;
+    opacity: 1;
+}
+
+.group-4 .text {
+    font-family: 'Great Vibes', sans-serif;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.group-5 {
+    position: relative;
+    top: 37px;
+    left: -135px;
+    width: 726px;
+    height: 120px;
+    text-align: center;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.group-5 .text {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+.signature {
+    position: absolute;
+    width: 300px;
+    background-image: url('horizontal.png');
+    background-repeat: no-repeat;
+    background-position: top;
+
+    font-family: 'Helvetica', sans-serif;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.signature .below-signature {
+    padding-top: 25px;
+}
+
+.signature .above-signature {
+    position: relative;
+    top: -159px;
+    left: -2px;
+}
+
+.above-signature img {
+    max-width: 180px;
+    max-height: 95px;
+}
+
+.qr-code-mid {
+    position: absolute;
+    top: 408px;
+    left: 172px;
+    width: 100px;
+}
+
+.qr-code-mid-below {
+    position: absolute;
+    top: 524px;
+    left: 172px;
+    width: 100px;
+}
