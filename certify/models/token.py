@@ -11,4 +11,7 @@ class Token(BaseModel):
 
 class TokenResponse(Response[Token]):
     error: ErrorResponse = None
-    has_error: bool = False
+
+class OAuthTokenError(ErrorResponse):
+    error_code="user.token.failed"
+    error_desc="OAuth token doesn't have required scope or expired."

@@ -9,34 +9,24 @@ from passlib.context import CryptContext
 
 from certify.core.config import SECRET_KEY, JWT_ALGORITHM, DEFAULT_TOKEN_EXPIRE
 from certify.constants.scope import Scope as ScopeEnum
-from certify.models.token import TokenError
+from certify.models.token import OAuthTokenError
 
+
+oauth_error = HTTPException(
+    status_code=status.HTTP_401_UNAUTHORIZED,
+    detail=OAuthTokenError(),
+)
 
 class CertifyAuth2PasswordBearer(OAuth2PasswordBearer):
     async def __call__(self, request: Request) -> Optional[str]:
         try:
             return await super().__call__(request)
         except HTTPException:
-            raise HTTPException(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                detail=TokenError(
-                    error_type="oauth.failed",
-                    error_code=103,
-                    error_description="Unable to verify OAuth. OAuth invalid or expired.",
-                ),
-            )
+            raise oauth_error
+
 
 PASSWORD_CONTEXT = CryptContext(schemes=["bcrypt"], deprecated="auto")
 OAUTH2_SCHEME = CertifyAuth2PasswordBearer(tokenUrl="auth")
-
-oauth_error = HTTPException(
-    status_code=status.HTTP_401_UNAUTHORIZED,
-    detail=TokenError(
-        error_type="user.token.failed",
-        error_code=102,
-        error_description="OAuth token doesn't have required scope or expired.",
-    ),
-)
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:

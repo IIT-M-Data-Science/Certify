@@ -1,5 +1,5 @@
 # Certify
-IITM-POD Certificate Verification System Portal
+IITM-POD Certificate Verification System & Generation API
 
 
 # Setup
