@@ -19,7 +19,7 @@ router = APIRouter(prefix="/cert")
 
 @router.post("/add", response_model=CertificateResponse, 
     responses={status.HTTP_401_UNAUTHORIZED: {'model': OAuthTokenError}, status.HTTP_500_INTERNAL_SERVER_ERROR: {'model': CertificateErrorResponse}},
-    #dependencies=[require_oauth_scopes(Scope.CreateCert)]
+    dependencies=[require_oauth_scopes(Scope.CreateCert)]
 )
 async def certificate_verify(
     request: Request,

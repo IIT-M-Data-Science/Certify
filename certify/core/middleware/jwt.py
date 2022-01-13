@@ -25,7 +25,7 @@ class OAuthMiddleware:
                 scope["oauth"] = payload
 
             except:
-                pass
+                scope["oauth"] = None
 
         await self._app(scope, receive, send)
 

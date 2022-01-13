@@ -25,7 +25,7 @@ async def generate_certificate(data: CertificateModel) -> BytesIO:
         template = await f.read()
 
     template = Template(template)
-    template = template.render(cert_type=data.type, name=data.data.name.title(), cert_desc=data.data.desc, signatures=data.data.signatures, qr_code=data.qr)
+    template = template.render(cert_type=data.type, name=data.data.name.title(), cert_desc=data.data.desc, signatures=data.data.signatures, qr_code=data.qr, cert_id=data.id)
 
     cert_pdf = await generate_pdf_from_template(template, cert_template)
     return cert_pdf
